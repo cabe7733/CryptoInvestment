@@ -68,7 +68,7 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=crypto_investment
 DB_USERNAME=root
-DB_PASSWORD=tu_password
+DB_PASSWORD=
 
 COINMARKETCAP_API_KEY=tu_api_key_aqui
 ```
@@ -229,5 +229,4 @@ Todos los precios obtenidos se guardan en la base de datos, permitiendo:
 
 ### Gráficos Interactivos
 
-Visualización con Chart.js incluyendo:
-- Líneas de
+Visualización con Chart.js
