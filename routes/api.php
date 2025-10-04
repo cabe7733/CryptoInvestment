@@ -1,19 +1,28 @@
 <?php
 
-use Illuminate\Http\Request;
+// routes/api.php
+
+use App\Http\Controllers\CryptoController;
+use App\Http\Controllers\HistoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Rutas de criptomonedas
+Route::prefix('cryptocurrencies')->group(function () {
+    Route::get('/', [CryptoController::class, 'index']);
+    Route::get('/search', [CryptoController::class, 'search']);
+    Route::post('/track', [CryptoController::class, 'track']);
+    Route::delete('/{id}', [CryptoController::class, 'destroy']);
+    Route::get('/prices', [CryptoController::class, 'getPrices']);
+});
+
+// Rutas de historial
+Route::prefix('history')->group(function () {
+    Route::get('/{id}', [HistoryController::class, 'show']);
+    Route::get('/{id}/range', [HistoryController::class, 'getRange']);
 });
