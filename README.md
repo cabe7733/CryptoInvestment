@@ -1,66 +1,233 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 CryptoInvestment - Rastreador de Criptomonedas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicación web de página única (SPA) para el seguimiento en tiempo real de criptomonedas utilizando Laravel y Vue.js.
 
-## About Laravel
+## 📋 Características
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- ✅ Seguimiento en tiempo real de criptomonedas
+- ✅ Búsqueda y selección de criptomonedas
+- ✅ Visualización de precios actualizados automáticamente
+- ✅ Gráficos interactivos de historial de precios
+- ✅ Cambios porcentuales (1h, 24h, 7d)
+- ✅ Market Cap y volumen de trading
+- ✅ Persistencia de datos históricos
+- ✅ Rangos de tiempo personalizables
+- ✅ Diseño responsivo para todos los dispositivos
+- ✅ SPA sin recargas de página
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Tecnologías Utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Backend:** PHP 8.1+ / Laravel 10+
+- **Frontend:** Vue.js 3 (Composition API)
+- **Gráficos:** Chart.js 4
+- **API:** CoinMarketCap API
+- **Base de Datos:** MySQL 8.0+
+- **Build Tool:** Vite
 
-## Learning Laravel
+## 📦 Requisitos Previos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- PHP >= 8.1
+- Composer
+- Node.js >= 18.x
+- NPM >= 9.x
+- MySQL >= 8.0
+- Cuenta en CoinMarketCap (API Key gratuita)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🔧 Instalación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Clonar el Repositorio
 
-## Laravel Sponsors
+```bash
+git clone https://github.com/tu-usuario/crypto-investment.git
+cd crypto-investment
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Instalar Dependencias de PHP
 
-### Premium Partners
+```bash
+composer install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 3. Instalar Dependencias de Node.js
 
-## Contributing
+```bash
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Configurar Variables de Entorno
 
-## Code of Conduct
+```bash
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Editar `.env` y configurar:
 
-## Security Vulnerabilities
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=crypto_investment
+DB_USERNAME=root
+DB_PASSWORD=tu_password
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+COINMARKETCAP_API_KEY=tu_api_key_aqui
+```
 
-## License
+### 5. Generar Key de Aplicación
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+### 6. Crear Base de Datos
+
+```bash
+mysql -u root -p
+CREATE DATABASE crypto_investment;
+exit;
+```
+
+### 7. Ejecutar Migraciones
+
+```bash
+php artisan migrate
+```
+
+### 8. Compilar Assets
+
+Para desarrollo:
+```bash
+npm run dev
+```
+
+Para producción:
+```bash
+npm run build
+```
+
+### 9. Iniciar Servidor
+
+```bash
+php artisan serve
+```
+
+La aplicación estará disponible en: `http://localhost:8000`
+
+## 🔑 Obtener API Key de CoinMarketCap
+
+1. Registrarse en [CoinMarketCap](https://coinmarketcap.com/api/)
+2. Seleccionar el plan gratuito (Basic)
+3. Copiar la API Key
+4. Agregar a `.env` en `COINMARKETCAP_API_KEY`
+
+**Nota:** El plan gratuito incluye:
+- 10,000 llamadas por mes
+- Datos actualizados cada minuto
+- Acceso a endpoints básicos
+
+## 🌿 Estrategia Git
+
+### Ramas Principales
+
+```
+main (producción)
+  └── develop (desarrollo)
+       ├── feature/api-integration
+       ├── feature/frontend-vue
+       ├── feature/real-time-updates
+       ├── feature/charts
+       └── feature/history-persistence
+```
+
+### Workflow de Desarrollo
+
+```bash
+# Crear rama de feature
+git checkout develop
+git checkout -b feature/nombre-feature
+
+# Hacer commits
+git add .
+git commit -m "feat: descripción del cambio"
+
+# Push a GitHub
+git push origin feature/nombre-feature
+
+# Crear Pull Request a develop
+# Una vez aprobado, merge a develop
+
+# Para deploy a producción
+git checkout main
+git merge develop
+git push origin main
+```
+
+## 📁 Estructura del Proyecto
+
+```
+crypto-investment/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── CryptoController.php
+│   │   └── HistoryController.php
+│   ├── Models/
+│   │   ├── Cryptocurrency.php
+│   │   └── PriceHistory.php
+│   └── Services/
+│       └── CoinMarketCapService.php
+├── database/migrations/
+├── resources/
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── components/
+│   │   │   ├── CryptoTracker.vue
+│   │   │   ├── CryptoSearch.vue
+│   │   │   ├── CryptoCard.vue
+│   │   │   └── PriceChart.vue
+│   │   └── services/
+│   │       └── api.js
+│   └── views/
+│       └── welcome.blade.php
+└── routes/
+    ├── api.php
+    └── web.php
+```
+
+## 🔌 Endpoints API
+
+### Criptomonedas
+
+```
+GET    /api/cryptocurrencies          # Listar trackeadas
+GET    /api/cryptocurrencies/search   # Buscar
+POST   /api/cryptocurrencies/track    # Agregar al seguimiento
+DELETE /api/cryptocurrencies/{id}     # Eliminar
+GET    /api/cryptocurrencies/prices   # Obtener precios actuales
+```
+
+### Historial
+
+```
+GET /api/history/{id}              # Historial completo
+GET /api/history/{id}/range        # Historial en rango
+    ?start_date=2024-01-01
+    &end_date=2024-01-31
+```
+
+## ⚡ Funcionalidades
+
+### Actualización Automática
+
+La aplicación actualiza los precios automáticamente cada 30 segundos cuando hay criptomonedas en seguimiento.
+
+### Persistencia de Datos
+
+Todos los precios obtenidos se guardan en la base de datos, permitiendo:
+- Consulta de históricos
+- Análisis de tendencias
+- Gráficos con datos reales
+
+### Gráficos Interactivos
+
+Visualización con Chart.js incluyendo:
+- Líneas de
